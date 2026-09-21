@@ -139,7 +139,7 @@ if not df_filtered.empty:
 
     with colD:
         # Tabla de Datos en bruto opcional
-        st.markdown("### 📋 Datos de Transacciones Críticas")
+        st.markdown("### 📋 Datos de Transacciones Críticas")                                                                                                                                            
         st.dataframe(df_filtered[['id_factura', 'fecha', 'id_sucursal', 'nombre_material', 'fuga_rentabilidad']]
                      .sort_values('fuga_rentabilidad', ascending=False).head(100),
                      use_container_width=True)
