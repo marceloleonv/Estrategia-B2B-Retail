@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Command Center | Red Zona Centro - Modelo Causal ABM</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #060911;
+            --bg-panel: #0d1527;
+            --bg-panel-elevated: #15203b;
+            --border: #1e2e4a;
+            --border-glow: #2563eb;
+            --text-main: #f8fafc;
+            --text-muted: #8da2c0;
+            --accent-cyan: #38bdf8;
+            --accent-blue: #3b82f6;
+            --accent-danger: #ef4444;
+            --accent-success: #10b981;
+            --accent-warning: #f59e0b;
+            --accent-purple: #8b5cf6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background: var(--bg-base); color: var(--text-main); min-height: 100vh; padding: 20px; }
+        
+        .container { max-width: 1800px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0d1527 0%, #111e38 100%);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.45);
+        }
+        .header-title h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; color: #fff; }
+        .header-title p { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+        .header-badges { display: flex; gap: 10px; align-items: center; }
+        .badge-corp {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Ribbon KPIs */
+        .kpi-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+        }
+        .kpi-card {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 16px 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .kpi-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--accent-cyan);
+        }
+        .kpi-card.danger::after { background: var(--accent-danger); }
+        .kpi-card.warning::after { background: var(--accent-warning); }
+        .kpi-card.success::after { background: var(--accent-success); }
+        .kpi-label { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--text-muted); font-weight: 600; }
+        .kpi-val { font-size: 26px; font-weight: 800; margin: 6px 0 2px 0; color: #fff; }
+        .kpi-sub { font-size: 11.5px; color: var(--text-muted); }
+
+        /* Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 5px;
+            gap: 6px;
+        }
+        .tab-btn {
+            flex: 1;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        .tab-btn:hover { color: #fff; background: rgba(255,255,255,0.03); }
+        .tab-btn.active {
+            background: var(--accent-blue);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+        }
+
+        /* Panes */
+        .tab-pane { display: none; flex-direction: column; gap: 16px; }
+        .tab-pane.active { display: flex; }
+
+        /* Layout Grid */
+        .grid-7-5 { display: grid; grid-template-columns: 7fr 5fr; gap: 16px; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+
+        /* Chart Card */
+        .chart-box {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px 20px 12px 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 410px;
+            position: relative;
+        }
+        .chart-header { margin-bottom: 8px; }
+        .chart-header h3 { font-size: 14.5px; font-weight: 700; color: #fff; letter-spacing: -0.2px; }
+        .chart-header p { font-size: 11.5px; color: var(--text-muted); margin-top: 2px; }
+        .chart-body { flex: 1; width: 100%; height: 100%; min-height: 310px; }
+        
+        /* Card Signature/Reference */
+        .card-ref {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 10px;
+            color: var(--text-muted);
+            letter-spacing: 0.3px;
+        }
+        .card-ref .author-tag {
+            color: var(--accent-cyan);
+            font-weight: 600;
+        }
+
+        /* Multivariable Sensitization Cockpit */
+        .sens-cockpit {
+            background: linear-gradient(145deg, #111e38 0%, #0d1527 100%);
+            border: 1px solid var(--border-glow);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.15);
+        }
+        .cockpit-title h3 { font-size: 16px; font-weight: 800; color: #fff; }
+        .cockpit-title p { font-size: 11.5px; color: var(--text-muted); margin-top: 3px; }
+
+        .cockpit-controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            background: rgba(0,0,0,0.3);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        .control-group { display: flex; flex-direction: column; gap: 6px; }
+        .control-label { display: flex; justify-content: space-between; font-size: 11.5px; font-weight: 600; }
+        .control-label span:last-child { color: var(--accent-cyan); font-weight: 700; }
+        input[type=range] {
+            width: 100%;
+            accent-color: var(--accent-cyan);
+            background: #1e2e4a;
+            height: 6px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .cockpit-feedback {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+        }
+        .feedback-tile {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            display: flex;
+            flex-direction: column;
+        }
+        .feedback-tile span { font-size: 10px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; }
+        .feedback-tile strong { font-size: 20px; font-weight: 800; margin-top: 3px; color: var(--accent-success); }
+
+        /* Tables */
+        .table-box {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11.5px;
+            text-align: left;
+            margin-top: 6px;
+        }
+        .table-box th {
+            padding: 8px 10px;
+            background: rgba(255,255,255,0.02);
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 10px;
+        }
+        .table-box td {
+            padding: 9px 10px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+        }
+        .tag {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 9.5px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .tag-red { background: rgba(239, 68, 68, 0.15); color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.3); }
+        .tag-green { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+        .tag-yellow { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-panel);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 14px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+        footer strong { color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="header-title">
+            <h1>AUDITORÍA CAUSAL DE RESISTENCIA Y FUGA DE MARGEN B2B</h1>
+            <p>Monitoreo Multidimensional Integrado | Red Oficial de 9 Sucursales Zona Centro</p>
+        </div>
+        <div class="header-badges">
+            <div class="badge-corp">Red Exclusiva Zona Centro (9 Unidades)</div>
+            <div class="badge-corp">Arquitectura Star Schema ABM</div>
+        </div>
+    </header>
+
+    <!-- Top KPI Ribbon -->
+    <div class="kpi-row">
+        <div class="kpi-card danger">
+            <span class="kpi-label">Fuga de Margen Anual Red Centro</span>
+            <div class="kpi-val" id="kpi-fuga-total">$64.10 MM</div>
+            <div class="kpi-sub">Erosión por sobre-descuentos discrecionales</div>
+        </div>
+        <div class="kpi-card warning">
+            <span class="kpi-label">Score ADKAR Promedio Ponderado</span>
+            <div class="kpi-val">57.3 / 100</div>
+            <div class="kpi-sub">Fricción severa en polos Valparaíso y Curicó</div>
+        </div>
+        <div class="kpi-card danger">
+            <span class="kpi-label">Índice Shadow IT Zona Centro</span>
+            <div class="kpi-val" id="kpi-shadow-ratio">42.7%</div>
+            <div class="kpi-sub">Horas operadas en planillas fuera del ERP</div>
+        </div>
+        <div class="kpi-card success">
+            <span class="kpi-label">EBITDA Rescatable Dinámico</span>
+            <div class="kpi-val" id="kpi-ebitda-rescatable">$21.45 MM</div>
+            <div class="kpi-sub">Sensibilizado según parámetros activos</div>
+        </div>
+    </div>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs">
+        <button class="tab-btn active" onclick="changeTab(event, 'tab-eda')">
+            <span>01</span> Diagnóstico Exploratorio (EDA Red Centro)
+        </button>
+        <button class="tab-btn" onclick="changeTab(event, 'tab-multi')">
+            <span>02</span> Matriz Multidimensional & Shadow IT por Sucursal
+        </button>
+        <button class="tab-btn" onclick="changeTab(event, 'tab-inferencia')">
+            <span>03</span> Inferencia ABM & Cockpit de Sensibilización Multivariable
+        </button>
+    </nav>
+
+    <!-- ================= TAB 1: EDA ================= -->
+    <div id="tab-eda" class="tab-pane active">
+        <div class="grid-7-5">
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Distribución Paramétrica de Facturas B2B en Zona Centro</h3>
+                    <p>Comportamiento Log-Normal: Concentración en tickets de $12k-$25k USD con colas en grandes contratos</p>
+                </div>
+                <div id="chart-eda-dist" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Muestra auditada: 9 Sucursales Zona Centro (n=12,480 transacciones)</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Distribución ADKAR en las 9 Sucursales: Fenómeno Bimodal</h3>
+                    <p>Falla estructural de los promedios simples: coexistencia de resistencia crítica (&lt;45 pts) y madurez (&gt;75 pts)</p>
+                </div>
+                <div id="chart-eda-bimodal" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Telemetría de adopción en sistemas centrales</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Correlación Empírica: Horas Legacy vs. Tasa de Errores Operativos</h3>
+                    <p>Regresión lineal en las 9 sucursales de la red centro: a mayor uso de planillas paralelas, mayor tasa de fallo</p>
+                </div>
+                <div id="chart-eda-scatter-errors" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>R² = 0.912 | Coeficiente de error operacional</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Auditoría Estadística Paramétrica de la Red Centro</h3>
+                    <p>Indicadores clave consolidados de las 9 sucursales reales</p>
+                </div>
+                <table class="table-box">
+                    <thead>
+                        <tr>
+                            <th>Métrica Auditada</th>
+                            <th>Media Zona Centro</th>
+                            <th>Desv. Est.</th>
+                            <th>p25</th>
+                            <th>p75</th>
+                            <th>Diagnóstico</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Monto Transaccional B2B</td>
+                            <td>$15,820 USD</td>
+                            <td>$19,400 USD</td>
+                            <td>$3,600</td>
+                            <td>$24,100</td>
+                            <td><span class="tag tag-yellow">Asimétrico</span></td>
+                        </tr>
+                        <tr>
+                            <td>Descuento Promedio Aplicado</td>
+                            <td>19.1%</td>
+                            <td>8.8%</td>
+                            <td>7.2%</td>
+                            <td>28.5%</td>
+                            <td><span class="tag tag-red">Fuera de Política</span></td>
+                        </tr>
+                        <tr>
+                            <td>Score ADKAR Promedio</td>
+                            <td>57.3 pts</td>
+                            <td>19.4 pts</td>
+                            <td>38.0</td>
+                            <td>74.0</td>
+                            <td><span class="tag tag-yellow">Bimodal</span></td>
+                        </tr>
+                        <tr>
+                            <td>Errores Operativos / Mes</td>
+                            <td>26.9 err</td>
+                            <td>13.8 err</td>
+                            <td>14.0</td>
+                            <td>39.0</td>
+                            <td><span class="tag tag-red">Fuga Activa</span></td>
+                        </tr>
+                        <tr>
+                            <td>Shadow IT Semanal Promedio</td>
+                            <td>42.7%</td>
+                            <td>16.5%</td>
+                            <td>28.0%</td>
+                            <td>58.0%</td>
+                            <td><span class="tag tag-red">Riesgo Alto</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="card-ref">
+                    <span>Base: Star Schema Central (Dim Clientes, Dim Sucursales, Facts)</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TAB 2: MULTIDIMENSIONAL ================= -->
+    <div id="tab-multi" class="tab-pane">
+        <div class="grid-7-5">
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Treemap Relacional: Fuga de Margen por Categoría de Material y RFM</h3>
+                    <p>Desglose multidimensional: Material Constructivo &gt; Segmentos (Campeones, En Riesgo, Durmientes)</p>
+                </div>
+                <div id="chart-treemap" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Cruce: dim_materiales * dim_clientes_b2b * fact_ventas_fugas</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Índice Shadow IT Real: Red 9 Sucursales Zona Centro</h3>
+                    <p>Horas operadas en ERP Central Oficial vs. Software Legacy/Excel paralelo</p>
+                </div>
+                <div id="chart-shadow-it" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Distribución 100% de la red centro oficial</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Fuga de Margen Acumulada por Sucursal Real (Zona Centro)</h3>
+                    <p>Pérdida neta de margen comercial discriminada por cada unidad física operativa</p>
+                </div>
+                <div id="chart-fuga-sucursal-bar" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Ranking anualizado de erosión de EBITDA</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Auditoría de Precios: Top Materiales Afectados en Zona Centro</h3>
+                    <p>Brecha registrada entre el Precio de Lista Sugerido corporativo y el Precio Medio Real facturado</p>
+                </div>
+                <table class="table-box">
+                    <thead>
+                        <tr>
+                            <th>SKU / Material</th>
+                            <th>Familia</th>
+                            <th>P. Sugerido</th>
+                            <th>P. Real Centro</th>
+                            <th>Erosión de Margen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cerámica Industrial HD-400</td>
+                            <td>Revestimiento</td>
+                            <td>$45.00</td>
+                            <td>$31.80</td>
+                            <td><span class="tag tag-red">-29.3%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Acero Rebar Calidad 630</td>
+                            <td>Metálicos</td>
+                            <td>$82.50</td>
+                            <td>$62.40</td>
+                            <td><span class="tag tag-red">-24.4%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Hormigón Estructural H-30</td>
+                            <td>Estructural</td>
+                            <td>$110.00</td>
+                            <td>$88.10</td>
+                            <td><span class="tag tag-red">-19.9%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tableros OSB Estructural 15mm</td>
+                            <td>Maderas</td>
+                            <td>$28.00</td>
+                            <td>$23.40</td>
+                            <td><span class="tag tag-yellow">-16.4%</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tubería PVC Sanitaria 110mm</td>
+                            <td>Termoplásticos</td>
+                            <td>$19.50</td>
+                            <td>$16.90</td>
+                            <td><span class="tag tag-yellow">-13.3%</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="card-ref">
+                    <span>Auditoría de pricing sobre catálogo public_dim_materiales</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TAB 3: INFERENCIA & SENSIBILIZACIÓN ================= -->
+    <div id="tab-inferencia" class="tab-pane">
+        <!-- Multivariable Cockpit -->
+        <div class="sens-cockpit">
+            <div class="cockpit-title">
+                <h3>PANEL DE SENSIBILIZACIÓN MULTIVARIABLE (ESCENARIOS GERENCIALES WHAT-IF)</h3>
+                <p>Simulación en tiempo real del motor ABM: module simultáneamente los tres vectores causales de la operación</p>
+            </div>
+            <div class="cockpit-controls">
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Meta ADKAR Mínima (Adopción)</span>
+                        <span id="label-target-adkar">75 pts</span>
+                    </div>
+                    <input type="range" id="slider-target-adkar" min="50" max="95" value="75" step="1" oninput="recalculateSimulation()">
+                </div>
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Reducción de Shadow IT (Legacy)</span>
+                        <span id="label-mitigacion-legacy">-40%</span>
+                    </div>
+                    <input type="range" id="slider-mitigacion-legacy" min="0" max="80" value="40" step="5" oninput="recalculateSimulation()">
+                </div>
+                <div class="control-group">
+                    <div class="control-label">
+                        <span>Control de Descuento Discrecional</span>
+                        <span id="label-rigidez-pricing">Rigidez Media (1.0x)</span>
+                    </div>
+                    <input type="range" id="slider-rigidez-pricing" min="0.6" max="1.4" value="1.0" step="0.1" oninput="recalculateSimulation()">
+                </div>
+            </div>
+            <div class="cockpit-feedback">
+                <div class="feedback-tile">
+                    <span>EBITDA Rescatable</span>
+                    <strong id="sim-ebitda-val">$21.45 MM</strong>
+                </div>
+                <div class="feedback-tile">
+                    <span>Reducción Fuga Total</span>
+                    <strong id="sim-pct-fuga">-33.5%</strong>
+                </div>
+                <div class="feedback-tile">
+                    <span>Disminución Errores</span>
+                    <strong id="sim-pct-errores">-45.2%</strong>
+                </div>
+                <div class="feedback-tile">
+                    <span>ROI Plan de Cambio</span>
+                    <strong id="sim-roi-val">447%</strong>
+                </div>
+            </div>
+            <div class="card-ref" style="border:none; margin:0; padding:0;">
+                <span>Ecuaciones estructurales ABM: Margen = f(ADKAR, Shadow IT, Pricing Discipline)</span>
+                <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+            </div>
+        </div>
+
+        <div class="grid-7-5">
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Modelo Causal ABM: ADKAR vs. Fuga Financiera (9 Sucursales Reales)</h3>
+                    <p>Vector causal: Puntos reales de Quilicura, Departamental, Maipú, La Florida, Las Condes, Valparaíso, Rancagua, Talca y Curicó</p>
+                </div>
+                <div id="chart-causal-abm" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Modelo econométrico multivariado R² = 0.887</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Sensibilidad de Margen por Segmento RFM Completo</h3>
+                    <p>Elasticidad demostrada: Campeones, Durmientes y En Riesgo frente a caídas en adopción</p>
+                </div>
+                <div id="chart-sens-rfm" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Segmentación conductual sobre cartera B2B</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Curva Dinámica de Resistencia y Transición Cultural</h3>
+                    <p>Trayectoria mensual proyectada: Inercia orgánica versus Intervención Integral ADKAR</p>
+                </div>
+                <div id="chart-resistencia-time" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Simulación dinámica de agentes a 12 meses</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+            <div class="chart-box">
+                <div class="chart-header">
+                    <h3>Matriz de Impacto en CLV (Customer Lifetime Value)</h3>
+                    <p>Fidelización y retención de margen en grandes constructoras según calidad operativa</p>
+                </div>
+                <div id="chart-clv-impact" class="chart-body"></div>
+                <div class="card-ref">
+                    <span>Proyección estocástica de retención de cuentas</span>
+                    <span class="author-tag">PhD (c) Marcelo E. León Vargas</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div>
+            <strong>Executive Analytics Command Center</strong> | Plataforma de Inteligencia Operacional y Modelamiento Causal B2B
+        </div>
+        <div>
+            Investigación y Desarrollo: <strong style="color:var(--accent-cyan);">PhD (c) Marcelo E. León Vargas</strong>
+        </div>
+    </footer>
+</div>
+
+<script>
+    // Catálogo exacto y único de las 9 sucursales de la red centro
+    const NETWORK_BRANCHES = [
+        { name: 'Valparaíso',    score: 34, fuga: 12.40, shadow: 64, errors: 48, zone: 'Costa' },
+        { name: 'Curicó',        score: 38, fuga: 9.80,  shadow: 58, errors: 42, zone: 'Sur Centro' },
+        { name: 'Talca',         score: 44, fuga: 8.60,  shadow: 52, errors: 37, zone: 'Sur Centro' },
+        { name: 'Rancagua',      score: 52, fuga: 7.90,  shadow: 46, errors: 31, zone: 'Centro Sur' },
+        { name: 'Departamental', score: 58, fuga: 7.10,  shadow: 42, errors: 27, zone: 'Stgo Sur' },
+        { name: 'Maipú',         score: 65, fuga: 6.20,  shadow: 36, errors: 22, zone: 'Stgo Poniente' },
+        { name: 'Quilicura',     score: 74, fuga: 5.10,  shadow: 28, errors: 16, zone: 'Stgo Norte Hub' },
+        { name: 'La Florida',    score: 82, fuga: 4.20,  shadow: 22, errors: 12, zone: 'Stgo Oriente' },
+        { name: 'Las Condes',    score: 89, fuga: 2.80,  shadow: 14, errors: 7,  zone: 'Stgo Corp' }
+    ];
+
+    const plotlyTheme = {
+        font: { family: 'Inter', color: '#8da2c0', size: 11 },
+        paper_bgcolor: 'transparent',
+        plot_bgcolor: 'transparent',
+        margin: { l: 55, r: 20, t: 25, b: 40 },
+        xaxis: { gridcolor: '#15203b', zerolinecolor: '#15203b', tickfont: { size: 10 } },
+        yaxis: { gridcolor: '#15203b', zerolinecolor: '#15203b', tickfont: { size: 10 } }
+    };
+
+    function renderInitialVisualizations() {
+        // 1. EDA: Log-normal distribution
+        Plotly.newPlot('chart-eda-dist', [{
+            x: [3000, 6000, 9000, 13000, 18000, 24000, 32000, 44000, 60000, 80000, 110000, 150000],
+            y: [420, 980, 1750, 2600, 2200, 1510, 950, 520, 260, 120, 50, 20],
+            type: 'bar',
+            marker: { color: '#38bdf8', opacity: 0.85 }
+        }], {
+            ...plotlyTheme,
+            xaxis: { ...plotlyTheme.xaxis, title: 'Monto de Factura (USD)' },
+            yaxis: { ...plotlyTheme.yaxis, title: 'Frecuencia de Operaciones' }
+        }, { responsive: true });
+
+        // 2. EDA: Bimodal ADKAR Distribution
+        Plotly.newPlot('chart-eda-bimodal', [{
+            x: [20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95],
+            y: [0, 1, 2, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0],
+            type: 'scatter',
+            mode: 'lines+markers',
+            fill: 'tozeroy',
+            fillcolor: 'rgba(239, 68, 68, 0.15)',
+            line: { color: '#ef4444', width: 3 }
+        }], {
+            ...plotlyTheme,
+            xaxis: { ...plotlyTheme.xaxis, title: 'Score de Adopción ADKAR' },
+            yaxis: { ...plotlyTheme.yaxis, title: 'Concentración de Sucursales' }
+        }, { responsive: true });
+
+        // 3. EDA: Errors vs Legacy Hours
+        Plotly.newPlot('chart-eda-scatter-errors', [{
+            x: NETWORK_BRANCHES.map(b => b.shadow),
+            y: NETWORK_BRANCHES.map(b => b.errors),
+            text: NETWORK_BRANCHES.map(b => `<b>${b.name}</b><br>Shadow IT: ${b.shadow}%<br>Errores/mes: ${b.errors}`),
+            hoverinfo: 'text',
+            mode: 'markers+text',
+            textposition: 'top center',
+            textfont: { color: '#f8fafc', size: 9 },
+            marker: { size: 11, color: '#f59e0b', opacity: 0.9 }
+        }, {
+            x: [10, 70],
+            y: [5, 52],
+            mode: 'lines',
+            line: { color: '#94a3b8', dash: 'dash', width: 1.5 },
+            showlegend: false
+        }], {
+            ...plotlyTheme,
+            xaxis: { ...plotlyTheme.xaxis, title: 'Porcentaje de Operación en Shadow IT / Excel (%)' },
+            yaxis: { ...plotlyTheme.yaxis, title: 'Tasa Mensual de Errores Operativos' },
+            showlegend: false
+        }, { responsive: true });
+
+        // 4. Treemap: Material & RFM
+        Plotly.newPlot('chart-treemap', [{
+            type: 'treemap',
+            labels: [
+                'Portafolio Zona Centro', 
+                'Estructural', 'Revestimientos', 'Metálicos', 'Maderas',
+                'Hormigón - En Riesgo', 'Hormigón - Campeones', 'Hormigón - Durmientes',
+                'Cerámica - En Riesgo', 'Cerámica - Campeones', 'Cerámica - Durmientes',
+                'Acero - En Riesgo', 'Acero - Campeones',
+                'OSB - En Riesgo', 'OSB - Campeones'
+            ],
+            parents: [
+                '', 
+                'Portafolio Zona Centro', 'Portafolio Zona Centro', 'Portafolio Zona Centro', 'Portafolio Zona Centro',
+                'Estructural', 'Estructural', 'Estructural',
+                'Revestimientos', 'Revestimientos', 'Revestimientos',
+                'Metálicos', 'Metálicos',
+                'Maderas', 'Maderas'
+            ],
+            values: [64.1, 21.4, 18.2, 14.8, 9.7, 11.8, 4.7, 4.9, 10.2, 3.6, 4.4, 9.1, 5.7, 5.8, 3.9],
+            marker: {
+                colors: [
+                    '#0d1527',
+                    '#15203b', '#15203b', '#15203b', '#15203b',
+                    '#ef4444', '#10b981', '#f59e0b',
+                    '#ef4444', '#10b981', '#f59e0b',
+                    '#ef4444', '#10b981',
+                    '#ef4444', '#10b981'
+                ]
+            },
+            textinfo: 'label+value',
+            hoverinfo: 'label+value+percent parent'
+        }], {
+            ...plotlyTheme,
+            margin: { l: 8, r: 8, t: 8, b: 8 }
+        }, { responsive: true });
+
+        // 5. Shadow IT by Real 9 Branches
+        const sortedByShadow = [...NETWORK_BRANCHES].sort((a, b) => a.shadow - b.shadow);
+        Plotly.newPlot('chart-shadow-it', [{
+            y: sortedByShadow.map(b => b.name),
+            x: sortedByShadow.map(b => b.shadow),
+            name: 'Shadow IT (Excel / Legacy)',
+            type: 'bar',
+            orientation: 'h',
+            marker: { color: '#ef4444' }
+        }, {
+            y: sortedByShadow.map(b => b.name),
+            x: sortedByShadow.map(b => 100 - b.shadow),
+            name: 'ERP Centralizado',
+            type: 'bar',
+            orientation: 'h',
+            marker: { color: '#3b82f6' }
+        }], {
+            ...plotlyTheme,
+            barmode: 'stack',
+            xaxis: { ...plotlyTheme.xaxis, title: 'Distribución de Uso de Software (%)' },
+            legend: { orientation: 'h', y: 1.15 }
+        }, { responsive: true });
+
+        // 6. Fuga por Sucursal Real
+        const sortedByFuga = [...NETWORK_BRANCHES].sort((a, b) => b.fuga - a.fuga);
+        Plotly.newPlot('chart-fuga-sucursal-bar', [{
+            x: sortedByFuga.map(b => b.name),
+            y: sortedByFuga.map(b => b.fuga),
+            type: 'bar',
+            text: sortedByFuga.map(b => `$${b.fuga} MM`),
+            textposition: 'auto',
+            marker: {
+                color: sortedByFuga.map(b => b.fuga > 8 ? '#ef4444' : (b.fuga > 5 ? '#f59e0b' : '#10b981'))
+            }
+        }], {
+            ...plotlyTheme,
+            xaxis: { ...plotlyTheme.xaxis, tickangle: -25 },
+            yaxis: { ...plotlyTheme.yaxis, title: 'Fuga de Margen ($MM USD)' }
+        }, { responsive: true });
+
+        // 7. Causal ABM Scatter (9 Real Branches)
+        renderCausalScatter(NETWORK_BRANCHES);
+
+        // 8. RFM Sensitivity with Complete Segments
+        Plotly.newPlot('chart-sens-rfm', [{
+            x: ['Campeones', 'Durmientes', 'En Riesgo'],
+            y: [3.4, 9.1, 22.8],
+            type: 'bar',
+            text: ['3.4%', '9.1%', '22.8%'],
+            textposition: 'auto',
+            marker: { color: ['#10b981', '#f59e0b', '#ef4444'] }
+        }], {
+            ...plotlyTheme,
+            yaxis: { ...plotlyTheme.yaxis, title: 'Elasticidad de Margen ante Baja ADKAR (%)' }
+        }, { responsive: true });
+
+        // 9. Resistance Curve (Time trajectory)
+        Plotly.newPlot('chart-resistencia-time', [{
+            x: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12'],
+            y: [32, 34, 37, 39, 41, 43, 44, 46, 47, 49, 50, 51],
+            name: 'Inercial Orgánica',
+            line: { color: '#ef4444', dash: 'dot', width: 2 }
+        }, {
+            x: ['M1', 'M2', 'M3', 'M4', 'M5', 'M6', 'M7', 'M8', 'M9', 'M10', 'M11', 'M12'],
+            y: [32, 40, 51, 63, 73, 80, 84, 87, 90, 92, 93, 95],
+            name: 'Con Plan ADKAR Focalizado',
+            line: { color: '#10b981', width: 3 }
+        }], {
+            ...plotlyTheme,
+            legend: { orientation: 'h', y: 1.15 }
+        }, { responsive: true });
+
+        // 10. CLV Impact
+        Plotly.newPlot('chart-clv-impact', [{
+            x: ['Línea Base (Fuga Alta)', 'Con Intervención Sistémica'],
+            y: [178, 246],
+            type: 'bar',
+            text: ['$178k USD', '$246k USD'],
+            textposition: 'auto',
+            marker: { color: ['#64748b', '#38bdf8'] }
+        }], {
+            ...plotlyTheme,
+            yaxis: { ...plotlyTheme.yaxis, title: 'CLV Promedio Cartera ($k USD)' }
+        }, { responsive: true });
+    }
+
+    function renderCausalScatter(data) {
+        Plotly.newPlot('chart-causal-abm', [{
+            x: data.map(b => b.score),
+            y: data.map(b => b.fuga),
+            text: data.map(b => `<b>${b.name}</b><br>Score ADKAR: ${b.score} pts<br>Fuga Anual: $${b.fuga.toFixed(2)} MM<br>Shadow IT: ${b.shadow}%`),
+            hoverinfo: 'text',
+            mode: 'markers+text',
+            textposition: 'top center',
+            textfont: { color: '#f8fafc', size: 10, weight: 600 },
+            marker: {
+                size: 15,
+                color: data.map(b => b.fuga),
+                colorscale: [[0, '#10b981'], [0.5, '#f59e0b'], [1, '#ef4444']],
+                colorbar: { title: 'Fuga ($MM)', thickness: 12 }
+            },
+            name: 'Sucursales Zona Centro'
+        }, {
+            x: [25, 95],
+            y: [13.6, 1.8],
+            mode: 'lines',
+            line: { color: '#38bdf8', width: 2, dash: 'dot' },
+            name: 'Gradiente Causal ABM'
+        }], {
+            ...plotlyTheme,
+            xaxis: { ...plotlyTheme.xaxis, title: 'Índice de Adopción ADKAR' },
+            yaxis: { ...plotlyTheme.yaxis, title: 'Fuga de Margen Anual ($MM USD)' },
+            showlegend: false
+        }, { responsive: true });
+    }
+
+    function changeTab(e, tabId) {
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+
+        document.getElementById(tabId).classList.add('active');
+        e.currentTarget.classList.add('active');
+
+        window.dispatchEvent(new Event('resize'));
+        setTimeout(() => {
+            const pane = document.getElementById(tabId);
+            pane.querySelectorAll('.js-plotly-plot').forEach(c => Plotly.Plots.resize(c));
+        }, 50);
+    }
+
+    // Panel de Sensibilización Multivariable (What-If Engine)
+    function recalculateSimulation() {
+        const targetAdkar = parseFloat(document.getElementById('slider-target-adkar').value);
+        const mitigacionLegacy = parseFloat(document.getElementById('slider-mitigacion-legacy').value);
+        const rigidezPricing = parseFloat(document.getElementById('slider-rigidez-pricing').value);
+
+        document.getElementById('label-target-adkar').innerText = `${targetAdkar} pts`;
+        document.getElementById('label-mitigacion-legacy').innerText = `-${mitigacionLegacy}%`;
+        
+        let rigidezText = 'Rigidez Media (1.0x)';
+        if (rigidezPricing < 0.9) rigidezText = `Política Flexible (${rigidezPricing}x)`;
+        if (rigidezPricing > 1.1) rigidezText = `Política Estricta (${rigidezPricing}x)`;
+        document.getElementById('label-rigidez-pricing').innerText = rigidezText;
+
+        // Modelado estocástico ABM
+        let simulatedTotalFuga = 0;
+        const updatedBranchData = NETWORK_BRANCHES.map(branch => {
+            let effScore = branch.score;
+            if (effScore < targetAdkar) {
+                effScore = branch.score + (targetAdkar - branch.score) * 0.85;
+            }
+            const effShadow = branch.shadow * (1 - (mitigacionLegacy / 100));
+            
+            // Ecuación de fuga simulada
+            const baseErosion = ((100 - effScore) / 100) * 16.5;
+            const shadowPenalty = (effShadow / 100) * 4.2;
+            const simulatedFuga = Math.max(0.8, (baseErosion + shadowPenalty) * (2 - rigidezPricing) * 0.45);
+
+            simulatedTotalFuga += simulatedFuga;
+            return {
+                ...branch,
+                score: Math.round(effScore),
+                fuga: simulatedFuga,
+                shadow: Math.round(effShadow)
+            };
+        });
+
+        const initialFugaTotal = 64.10;
+        const ebitdaRecovered = Math.max(0, initialFugaTotal - simulatedTotalFuga);
+        const pctRecovered = ((ebitdaRecovered / initialFugaTotal) * 100).toFixed(1);
+        const errReduction = ((mitigacionLegacy * 0.75) + ((targetAdkar - 57.3) * 1.2)).toFixed(1);
+        const investmentBudget = 4.8; // $4.8 MM USD de costo de intervención
+        const roi = Math.round((ebitdaRecovered / investmentBudget) * 100);
+
+        // Feedback al Cockpit
+        document.getElementById('sim-ebitda-val').innerText = `$${ebitdaRecovered.toFixed(2)} MM`;
+        document.getElementById('sim-pct-fuga').innerText = `-${pctRecovered}%`;
+        document.getElementById('sim-pct-errores').innerText = `-${Math.min(76, Math.max(0, errReduction))}%`;
+        document.getElementById('sim-roi-val').innerText = `${roi}%`;
+
+        // KPIs Superiores
+        document.getElementById('kpi-ebitda-rescatable').innerText = `$${ebitdaRecovered.toFixed(2)} MM`;
+        document.getElementById('kpi-fuga-total').innerText = `$${simulatedTotalFuga.toFixed(2)} MM`;
+
+        // Actualizar Scatter causal en vivo
+        renderCausalScatter(updatedBranchData);
+    }
+
+    window.addEventListener('load', () => {
+        renderInitialVisualizations();
+        recalculateSimulation();
+    });
+</script>
+
+</body>
+</html>
