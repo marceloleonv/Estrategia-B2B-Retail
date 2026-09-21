@@ -1,0 +1,10 @@
+id_sucursal,nombre,tipo,adopcion_adkar
+101,Las Condes,A,0.9
+102,Maipú,A,0.85
+103,La Florida,B,0.7
+104,Departamental,B,0.65
+105,Quilicura,B,0.6
+106,Valparaíso,B,0.35
+107,Rancagua,B,0.25
+108,Talca,C,0.4
+109,Curicó,C,0.3

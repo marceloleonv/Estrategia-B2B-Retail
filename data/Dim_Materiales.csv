@@ -1,0 +1,61 @@
+id_sku,categoria,nombre_producto,costo_unitario,precio_lista_sugerido
+2001,Obra Gruesa,Prod_Obra_1,7876.0,13127.0
+2002,Maderas y Tableros,Prod_Maderas_2,33163.0,55272.0
+2003,Acero y Fierro,Prod_Acero_3,89694.0,149490.0
+2004,Herramientas,Prod_Herramientas_4,14998.0,24997.0
+2005,Terminaciones,Prod_Terminaciones_5,8655.0,14425.0
+2006,Obra Gruesa,Prod_Obra_6,30143.0,50238.0
+2007,Herramientas,Prod_Herramientas_7,74232.0,123720.0
+2008,Herramientas,Prod_Herramientas_8,27866.0,46443.0
+2009,Herramientas,Prod_Herramientas_9,53245.0,88742.0
+2010,Terminaciones,Prod_Terminaciones_10,72766.0,121277.0
+2011,Obra Gruesa,Prod_Obra_11,92263.0,153772.0
+2012,Acero y Fierro,Prod_Acero_12,85286.0,142143.0
+2013,Maderas y Tableros,Prod_Maderas_13,36955.0,61592.0
+2014,Acero y Fierro,Prod_Acero_14,115080.0,191800.0
+2015,Maderas y Tableros,Prod_Maderas_15,16754.0,27923.0
+2016,Terminaciones,Prod_Terminaciones_16,16122.0,26870.0
+2017,Maderas y Tableros,Prod_Maderas_17,74428.0,124047.0
+2018,Obra Gruesa,Prod_Obra_18,88919.0,148198.0
+2019,Herramientas,Prod_Herramientas_19,19355.0,32258.0
+2020,Terminaciones,Prod_Terminaciones_20,14062.0,23437.0
+2021,Maderas y Tableros,Prod_Maderas_21,100382.0,167303.0
+2022,Herramientas,Prod_Herramientas_22,106827.0,178045.0
+2023,Maderas y Tableros,Prod_Maderas_23,71395.0,118992.0
+2024,Obra Gruesa,Prod_Obra_24,10270.0,17117.0
+2025,Acero y Fierro,Prod_Acero_25,93903.0,156505.0
+2026,Obra Gruesa,Prod_Obra_26,103362.0,172270.0
+2027,Obra Gruesa,Prod_Obra_27,48715.0,81192.0
+2028,Terminaciones,Prod_Terminaciones_28,78104.0,130173.0
+2029,Maderas y Tableros,Prod_Maderas_29,23705.0,39508.0
+2030,Maderas y Tableros,Prod_Maderas_30,29093.0,48488.0
+2031,Maderas y Tableros,Prod_Maderas_31,85709.0,142848.0
+2032,Obra Gruesa,Prod_Obra_32,75050.0,125083.0
+2033,Acero y Fierro,Prod_Acero_33,66426.0,110710.0
+2034,Acero y Fierro,Prod_Acero_34,23791.0,39652.0
+2035,Terminaciones,Prod_Terminaciones_35,36044.0,60073.0
+2036,Herramientas,Prod_Herramientas_36,30256.0,50427.0
+2037,Maderas y Tableros,Prod_Maderas_37,101928.0,169880.0
+2038,Obra Gruesa,Prod_Obra_38,31341.0,52235.0
+2039,Obra Gruesa,Prod_Obra_39,97580.0,162633.0
+2040,Terminaciones,Prod_Terminaciones_40,35790.0,59650.0
+2041,Acero y Fierro,Prod_Acero_41,110011.0,183352.0
+2042,Herramientas,Prod_Herramientas_42,105782.0,176303.0
+2043,Maderas y Tableros,Prod_Maderas_43,29452.0,49087.0
+2044,Terminaciones,Prod_Terminaciones_44,50498.0,84163.0
+2045,Terminaciones,Prod_Terminaciones_45,21430.0,35717.0
+2046,Acero y Fierro,Prod_Acero_46,33362.0,55603.0
+2047,Herramientas,Prod_Herramientas_47,66982.0,111637.0
+2048,Herramientas,Prod_Herramientas_48,54270.0,90450.0
+2049,Herramientas,Prod_Herramientas_49,50931.0,84885.0
+2050,Acero y Fierro,Prod_Acero_50,119692.0,199487.0
+2051,Acero y Fierro,Prod_Acero_51,63596.0,105993.0
+2052,Obra Gruesa,Prod_Obra_52,91915.0,153192.0
+2053,Obra Gruesa,Prod_Obra_53,22577.0,37628.0
+2054,Acero y Fierro,Prod_Acero_54,96089.0,160148.0
+2055,Terminaciones,Prod_Terminaciones_55,73587.0,122645.0
+2056,Terminaciones,Prod_Terminaciones_56,48886.0,81477.0
+2057,Terminaciones,Prod_Terminaciones_57,65848.0,109747.0
+2058,Herramientas,Prod_Herramientas_58,103990.0,173317.0
+2059,Obra Gruesa,Prod_Obra_59,83233.0,138722.0
+2060,Obra Gruesa,Prod_Obra_60,83397.0,138995.0

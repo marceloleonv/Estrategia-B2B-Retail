@@ -1,0 +1,501 @@
+id_cliente,nombre_constructora,region,segmento_rfm,clv_proyectado_usd
+CLT-0001,Constructora A0,Centro,En Riesgo,155331.03
+CLT-0002,Constructora B1,Metropolitana,En Riesgo,109939.67
+CLT-0003,Constructora C2,Metropolitana,En Riesgo,161405.94
+CLT-0004,Constructora D3,Sur,Durmientes,59158.79
+CLT-0005,Constructora E4,Norte,En Riesgo,166793.71
+CLT-0006,Constructora F5,Norte,Campeones,554039.04
+CLT-0007,Constructora G6,Norte,Durmientes,62508.83
+CLT-0008,Constructora H7,Metropolitana,Durmientes,56887.7
+CLT-0009,Constructora I8,Metropolitana,Durmientes,48947.51
+CLT-0010,Constructora J9,Metropolitana,Durmientes,25085.59
+CLT-0011,Constructora K10,Norte,En Riesgo,162888.55
+CLT-0012,Constructora L11,Metropolitana,En Riesgo,156230.63
+CLT-0013,Constructora M12,Metropolitana,Durmientes,54073.68
+CLT-0014,Constructora N13,Centro,Durmientes,30848.77
+CLT-0015,Constructora O14,Norte,Campeones,445947.17
+CLT-0016,Constructora P15,Norte,Campeones,552657.64
+CLT-0017,Constructora Q16,Centro,En Riesgo,148813.35
+CLT-0018,Constructora R17,Sur,Durmientes,60222.51
+CLT-0019,Constructora S18,Sur,Durmientes,50424.78
+CLT-0020,Constructora T19,Centro,Campeones,501487.81
+CLT-0021,Constructora U20,Metropolitana,En Riesgo,178148.51
+CLT-0022,Constructora V21,Norte,En Riesgo,134518.66
+CLT-0023,Constructora W22,Centro,Durmientes,51441.81
+CLT-0024,Constructora X23,Centro,Durmientes,43065.87
+CLT-0025,Constructora Y24,Sur,Durmientes,43482.56
+CLT-0026,Constructora Z25,Metropolitana,En Riesgo,140724.84
+CLT-0027,Constructora A26,Norte,En Riesgo,156664.01
+CLT-0028,Constructora B27,Sur,En Riesgo,135637.54
+CLT-0029,Constructora C28,Sur,Campeones,562787.81
+CLT-0030,Constructora D29,Norte,Durmientes,36580.89
+CLT-0031,Constructora E30,Metropolitana,Durmientes,47196.93
+CLT-0032,Constructora F31,Norte,Durmientes,43404.03
+CLT-0033,Constructora G32,Norte,Durmientes,71704.67
+CLT-0034,Constructora H33,Metropolitana,En Riesgo,155896.64
+CLT-0035,Constructora I34,Metropolitana,Durmientes,65477.67
+CLT-0036,Constructora J35,Metropolitana,Durmientes,27716.59
+CLT-0037,Constructora K36,Centro,Durmientes,54005.75
+CLT-0038,Constructora L37,Norte,En Riesgo,176688.92
+CLT-0039,Constructora M38,Metropolitana,En Riesgo,152468.52
+CLT-0040,Constructora N39,Sur,Campeones,553274.02
+CLT-0041,Constructora O40,Norte,Durmientes,42240.67
+CLT-0042,Constructora P41,Sur,En Riesgo,192280.42
+CLT-0043,Constructora Q42,Norte,En Riesgo,218966.94
+CLT-0044,Constructora R43,Metropolitana,En Riesgo,139114.84
+CLT-0045,Constructora S44,Centro,En Riesgo,136634.92
+CLT-0046,Constructora T45,Metropolitana,En Riesgo,193601.53
+CLT-0047,Constructora U46,Centro,Campeones,578978.61
+CLT-0048,Constructora V47,Sur,En Riesgo,134314.2
+CLT-0049,Constructora W48,Sur,En Riesgo,137394.4
+CLT-0050,Constructora X49,Norte,Durmientes,45773.23
+CLT-0051,Constructora Y50,Metropolitana,En Riesgo,109666.48
+CLT-0052,Constructora Z51,Metropolitana,Durmientes,36220.22
+CLT-0053,Constructora A52,Metropolitana,En Riesgo,119875.78
+CLT-0054,Constructora B53,Metropolitana,En Riesgo,126966.07
+CLT-0055,Constructora C54,Sur,Durmientes,49479.73
+CLT-0056,Constructora D55,Metropolitana,En Riesgo,157026.44
+CLT-0057,Constructora E56,Norte,Campeones,577525.02
+CLT-0058,Constructora F57,Norte,Campeones,450082.3
+CLT-0059,Constructora G58,Norte,Durmientes,64764.84
+CLT-0060,Constructora H59,Centro,En Riesgo,143580.33
+CLT-0061,Constructora I60,Centro,Durmientes,49258.04
+CLT-0062,Constructora J61,Centro,En Riesgo,170244.58
+CLT-0063,Constructora K62,Metropolitana,Campeones,443863.9
+CLT-0064,Constructora L63,Centro,Campeones,519120.49
+CLT-0065,Constructora M64,Centro,En Riesgo,154993.57
+CLT-0066,Constructora N65,Sur,En Riesgo,164773.54
+CLT-0067,Constructora O66,Norte,En Riesgo,158675.06
+CLT-0068,Constructora P67,Metropolitana,En Riesgo,223659.0
+CLT-0069,Constructora Q68,Norte,Durmientes,40433.9
+CLT-0070,Constructora R69,Metropolitana,En Riesgo,134070.09
+CLT-0071,Constructora S70,Metropolitana,En Riesgo,131305.78
+CLT-0072,Constructora T71,Norte,Durmientes,41667.84
+CLT-0073,Constructora U72,Norte,En Riesgo,130878.39
+CLT-0074,Constructora V73,Metropolitana,En Riesgo,185670.5
+CLT-0075,Constructora W74,Metropolitana,Durmientes,71307.56
+CLT-0076,Constructora X75,Metropolitana,Durmientes,41438.81
+CLT-0077,Constructora Y76,Metropolitana,Campeones,458382.22
+CLT-0078,Constructora Z77,Norte,Durmientes,57071.23
+CLT-0079,Constructora A78,Centro,En Riesgo,133433.31
+CLT-0080,Constructora B79,Norte,En Riesgo,168987.95
+CLT-0081,Constructora C80,Metropolitana,En Riesgo,156087.69
+CLT-0082,Constructora D81,Metropolitana,Durmientes,27263.84
+CLT-0083,Constructora E82,Centro,En Riesgo,196425.16
+CLT-0084,Constructora F83,Norte,En Riesgo,203876.33
+CLT-0085,Constructora G84,Centro,En Riesgo,131616.34
+CLT-0086,Constructora H85,Centro,En Riesgo,138368.95
+CLT-0087,Constructora I86,Metropolitana,Campeones,514293.27
+CLT-0088,Constructora J87,Metropolitana,Campeones,516722.84
+CLT-0089,Constructora K88,Metropolitana,Campeones,532927.21
+CLT-0090,Constructora L89,Sur,Campeones,600510.23
+CLT-0091,Constructora M90,Norte,Campeones,491152.64
+CLT-0092,Constructora N91,Metropolitana,En Riesgo,126051.08
+CLT-0093,Constructora O92,Metropolitana,Campeones,431034.04
+CLT-0094,Constructora P93,Sur,En Riesgo,128072.1
+CLT-0095,Constructora Q94,Metropolitana,Durmientes,49503.1
+CLT-0096,Constructora R95,Sur,En Riesgo,203836.74
+CLT-0097,Constructora S96,Sur,En Riesgo,134471.66
+CLT-0098,Constructora T97,Sur,Campeones,511189.4
+CLT-0099,Constructora U98,Norte,Campeones,499178.86
+CLT-0100,Constructora V99,Norte,Campeones,559419.66
+CLT-0101,Constructora W100,Norte,Campeones,626346.62
+CLT-0102,Constructora X101,Metropolitana,En Riesgo,134073.94
+CLT-0103,Constructora Y102,Centro,Campeones,475528.03
+CLT-0104,Constructora Z103,Sur,Campeones,552208.04
+CLT-0105,Constructora A104,Metropolitana,Campeones,534094.57
+CLT-0106,Constructora B105,Centro,En Riesgo,205401.22
+CLT-0107,Constructora C106,Sur,En Riesgo,167517.85
+CLT-0108,Constructora D107,Metropolitana,En Riesgo,139221.24
+CLT-0109,Constructora E108,Centro,En Riesgo,167719.64
+CLT-0110,Constructora F109,Norte,En Riesgo,183261.11
+CLT-0111,Constructora G110,Centro,Campeones,541024.11
+CLT-0112,Constructora H111,Norte,Durmientes,57609.11
+CLT-0113,Constructora I112,Metropolitana,En Riesgo,182000.24
+CLT-0114,Constructora J113,Metropolitana,Campeones,558464.78
+CLT-0115,Constructora K114,Metropolitana,Durmientes,70732.38
+CLT-0116,Constructora L115,Metropolitana,Durmientes,59730.65
+CLT-0117,Constructora M116,Metropolitana,Campeones,491644.1
+CLT-0118,Constructora N117,Norte,En Riesgo,154401.41
+CLT-0119,Constructora O118,Metropolitana,Durmientes,68097.63
+CLT-0120,Constructora P119,Sur,Durmientes,37745.96
+CLT-0121,Constructora Q120,Metropolitana,Campeones,518433.67
+CLT-0122,Constructora R121,Metropolitana,En Riesgo,138199.84
+CLT-0123,Constructora S122,Centro,En Riesgo,150862.34
+CLT-0124,Constructora T123,Norte,En Riesgo,188353.56
+CLT-0125,Constructora U124,Centro,En Riesgo,155732.97
+CLT-0126,Constructora V125,Sur,En Riesgo,151393.1
+CLT-0127,Constructora W126,Metropolitana,En Riesgo,109204.32
+CLT-0128,Constructora X127,Metropolitana,Durmientes,61193.8
+CLT-0129,Constructora Y128,Norte,Campeones,532274.21
+CLT-0130,Constructora Z129,Sur,En Riesgo,214897.64
+CLT-0131,Constructora A130,Sur,Durmientes,45383.33
+CLT-0132,Constructora B131,Centro,Durmientes,53287.25
+CLT-0133,Constructora C132,Norte,En Riesgo,157481.51
+CLT-0134,Constructora D133,Centro,En Riesgo,197323.6
+CLT-0135,Constructora E134,Metropolitana,Campeones,495235.22
+CLT-0136,Constructora F135,Centro,En Riesgo,158370.65
+CLT-0137,Constructora G136,Sur,En Riesgo,168236.9
+CLT-0138,Constructora H137,Metropolitana,En Riesgo,155598.27
+CLT-0139,Constructora I138,Centro,En Riesgo,136606.99
+CLT-0140,Constructora J139,Metropolitana,En Riesgo,155822.7
+CLT-0141,Constructora K140,Metropolitana,Campeones,553681.59
+CLT-0142,Constructora L141,Centro,En Riesgo,119204.54
+CLT-0143,Constructora M142,Sur,En Riesgo,153989.09
+CLT-0144,Constructora N143,Centro,En Riesgo,128996.38
+CLT-0145,Constructora O144,Centro,Campeones,559752.33
+CLT-0146,Constructora P145,Norte,Durmientes,27152.2
+CLT-0147,Constructora Q146,Metropolitana,En Riesgo,133232.34
+CLT-0148,Constructora R147,Sur,En Riesgo,161316.36
+CLT-0149,Constructora S148,Norte,Durmientes,73482.86
+CLT-0150,Constructora T149,Centro,En Riesgo,148027.49
+CLT-0151,Constructora U150,Metropolitana,Campeones,472240.02
+CLT-0152,Constructora V151,Centro,En Riesgo,206434.71
+CLT-0153,Constructora W152,Norte,En Riesgo,106559.58
+CLT-0154,Constructora X153,Sur,Durmientes,17017.91
+CLT-0155,Constructora Y154,Metropolitana,En Riesgo,163200.43
+CLT-0156,Constructora Z155,Centro,Campeones,474897.29
+CLT-0157,Constructora A156,Metropolitana,En Riesgo,119363.02
+CLT-0158,Constructora B157,Metropolitana,En Riesgo,171250.69
+CLT-0159,Constructora C158,Centro,En Riesgo,157314.02
+CLT-0160,Constructora D159,Metropolitana,En Riesgo,133077.64
+CLT-0161,Constructora E160,Centro,En Riesgo,111590.87
+CLT-0162,Constructora F161,Metropolitana,Durmientes,63086.86
+CLT-0163,Constructora G162,Metropolitana,En Riesgo,169506.04
+CLT-0164,Constructora H163,Sur,En Riesgo,147024.72
+CLT-0165,Constructora I164,Norte,Campeones,592331.85
+CLT-0166,Constructora J165,Metropolitana,Campeones,446495.76
+CLT-0167,Constructora K166,Centro,En Riesgo,104234.24
+CLT-0168,Constructora L167,Norte,Campeones,465404.6
+CLT-0169,Constructora M168,Norte,Campeones,497720.7
+CLT-0170,Constructora N169,Sur,En Riesgo,157300.18
+CLT-0171,Constructora O170,Metropolitana,Campeones,487938.2
+CLT-0172,Constructora P171,Norte,Durmientes,55280.83
+CLT-0173,Constructora Q172,Sur,Campeones,437423.03
+CLT-0174,Constructora R173,Centro,En Riesgo,193312.94
+CLT-0175,Constructora S174,Metropolitana,En Riesgo,147535.46
+CLT-0176,Constructora T175,Norte,Durmientes,66759.44
+CLT-0177,Constructora U176,Metropolitana,Campeones,517136.27
+CLT-0178,Constructora V177,Centro,En Riesgo,163702.6
+CLT-0179,Constructora W178,Metropolitana,Durmientes,58546.51
+CLT-0180,Constructora X179,Norte,Durmientes,56715.63
+CLT-0181,Constructora Y180,Centro,Durmientes,59640.84
+CLT-0182,Constructora Z181,Norte,En Riesgo,189874.58
+CLT-0183,Constructora A182,Metropolitana,Campeones,509826.06
+CLT-0184,Constructora B183,Metropolitana,En Riesgo,171270.11
+CLT-0185,Constructora C184,Centro,Durmientes,48653.96
+CLT-0186,Constructora D185,Metropolitana,En Riesgo,193203.52
+CLT-0187,Constructora E186,Metropolitana,En Riesgo,129708.23
+CLT-0188,Constructora F187,Sur,En Riesgo,204028.21
+CLT-0189,Constructora G188,Sur,Durmientes,49397.63
+CLT-0190,Constructora H189,Centro,Campeones,428461.24
+CLT-0191,Constructora I190,Norte,En Riesgo,153843.13
+CLT-0192,Constructora J191,Metropolitana,En Riesgo,129568.45
+CLT-0193,Constructora K192,Metropolitana,En Riesgo,175219.31
+CLT-0194,Constructora L193,Metropolitana,En Riesgo,130421.28
+CLT-0195,Constructora M194,Centro,Campeones,477690.83
+CLT-0196,Constructora N195,Centro,En Riesgo,93313.78
+CLT-0197,Constructora O196,Metropolitana,En Riesgo,136430.81
+CLT-0198,Constructora P197,Metropolitana,En Riesgo,77283.62
+CLT-0199,Constructora Q198,Metropolitana,Campeones,420804.86
+CLT-0200,Constructora R199,Metropolitana,En Riesgo,172812.44
+CLT-0201,Constructora S200,Metropolitana,En Riesgo,173574.0
+CLT-0202,Constructora T201,Norte,Campeones,521272.88
+CLT-0203,Constructora U202,Norte,En Riesgo,120990.72
+CLT-0204,Constructora V203,Metropolitana,Campeones,497614.43
+CLT-0205,Constructora W204,Metropolitana,Campeones,499819.87
+CLT-0206,Constructora X205,Norte,Durmientes,32624.53
+CLT-0207,Constructora Y206,Norte,En Riesgo,195101.95
+CLT-0208,Constructora Z207,Metropolitana,Durmientes,63160.43
+CLT-0209,Constructora A208,Norte,En Riesgo,143371.07
+CLT-0210,Constructora B209,Norte,En Riesgo,150806.58
+CLT-0211,Constructora C210,Sur,Durmientes,53125.74
+CLT-0212,Constructora D211,Metropolitana,En Riesgo,88747.95
+CLT-0213,Constructora E212,Metropolitana,En Riesgo,142584.68
+CLT-0214,Constructora F213,Centro,En Riesgo,129540.47
+CLT-0215,Constructora G214,Metropolitana,En Riesgo,119951.4
+CLT-0216,Constructora H215,Centro,Durmientes,45783.5
+CLT-0217,Constructora I216,Centro,Durmientes,76965.3
+CLT-0218,Constructora J217,Metropolitana,Durmientes,59612.64
+CLT-0219,Constructora K218,Metropolitana,Campeones,471441.05
+CLT-0220,Constructora L219,Metropolitana,Durmientes,58588.74
+CLT-0221,Constructora M220,Metropolitana,Durmientes,70990.33
+CLT-0222,Constructora N221,Sur,Campeones,546231.68
+CLT-0223,Constructora O222,Norte,Campeones,502981.52
+CLT-0224,Constructora P223,Centro,Durmientes,40295.95
+CLT-0225,Constructora Q224,Centro,En Riesgo,170946.7
+CLT-0226,Constructora R225,Centro,Durmientes,55902.28
+CLT-0227,Constructora S226,Metropolitana,Campeones,544759.66
+CLT-0228,Constructora T227,Centro,Durmientes,59527.58
+CLT-0229,Constructora U228,Metropolitana,En Riesgo,181486.58
+CLT-0230,Constructora V229,Metropolitana,Campeones,473238.24
+CLT-0231,Constructora W230,Metropolitana,Campeones,565869.7
+CLT-0232,Constructora X231,Sur,Durmientes,52963.99
+CLT-0233,Constructora Y232,Sur,En Riesgo,212257.83
+CLT-0234,Constructora Z233,Sur,En Riesgo,129324.37
+CLT-0235,Constructora A234,Norte,En Riesgo,202078.91
+CLT-0236,Constructora B235,Metropolitana,Durmientes,52968.66
+CLT-0237,Constructora C236,Centro,En Riesgo,130457.46
+CLT-0238,Constructora D237,Norte,Durmientes,42741.71
+CLT-0239,Constructora E238,Metropolitana,En Riesgo,140389.58
+CLT-0240,Constructora F239,Norte,En Riesgo,162724.98
+CLT-0241,Constructora G240,Metropolitana,En Riesgo,165685.06
+CLT-0242,Constructora H241,Metropolitana,En Riesgo,132789.0
+CLT-0243,Constructora I242,Metropolitana,Durmientes,49634.68
+CLT-0244,Constructora J243,Centro,En Riesgo,214268.11
+CLT-0245,Constructora K244,Norte,En Riesgo,201826.3
+CLT-0246,Constructora L245,Metropolitana,Durmientes,56544.86
+CLT-0247,Constructora M246,Sur,En Riesgo,151140.1
+CLT-0248,Constructora N247,Metropolitana,En Riesgo,153600.94
+CLT-0249,Constructora O248,Metropolitana,Durmientes,59202.77
+CLT-0250,Constructora P249,Metropolitana,En Riesgo,119316.22
+CLT-0251,Constructora Q250,Centro,Campeones,487131.17
+CLT-0252,Constructora R251,Centro,Durmientes,24971.24
+CLT-0253,Constructora S252,Metropolitana,En Riesgo,161976.69
+CLT-0254,Constructora T253,Centro,En Riesgo,169415.88
+CLT-0255,Constructora U254,Norte,Campeones,475840.68
+CLT-0256,Constructora V255,Sur,Durmientes,73609.8
+CLT-0257,Constructora W256,Metropolitana,En Riesgo,113227.03
+CLT-0258,Constructora X257,Metropolitana,En Riesgo,106068.75
+CLT-0259,Constructora Y258,Sur,Durmientes,53366.78
+CLT-0260,Constructora Z259,Norte,Durmientes,65706.47
+CLT-0261,Constructora A260,Metropolitana,Campeones,584196.38
+CLT-0262,Constructora B261,Metropolitana,En Riesgo,136233.47
+CLT-0263,Constructora C262,Norte,En Riesgo,182360.43
+CLT-0264,Constructora D263,Sur,Durmientes,49422.37
+CLT-0265,Constructora E264,Metropolitana,Campeones,491368.64
+CLT-0266,Constructora F265,Metropolitana,En Riesgo,176509.8
+CLT-0267,Constructora G266,Metropolitana,Durmientes,59784.84
+CLT-0268,Constructora H267,Metropolitana,Durmientes,26354.12
+CLT-0269,Constructora I268,Centro,En Riesgo,194296.21
+CLT-0270,Constructora J269,Centro,Durmientes,70701.37
+CLT-0271,Constructora K270,Metropolitana,Campeones,468721.86
+CLT-0272,Constructora L271,Metropolitana,Durmientes,55937.05
+CLT-0273,Constructora M272,Metropolitana,Campeones,524701.51
+CLT-0274,Constructora N273,Metropolitana,En Riesgo,157820.21
+CLT-0275,Constructora O274,Sur,Durmientes,41745.42
+CLT-0276,Constructora P275,Sur,Campeones,466418.83
+CLT-0277,Constructora Q276,Metropolitana,En Riesgo,149233.38
+CLT-0278,Constructora R277,Metropolitana,Durmientes,67590.94
+CLT-0279,Constructora S278,Metropolitana,Durmientes,58154.0
+CLT-0280,Constructora T279,Metropolitana,En Riesgo,138881.57
+CLT-0281,Constructora U280,Metropolitana,En Riesgo,173150.96
+CLT-0282,Constructora V281,Centro,En Riesgo,64543.72
+CLT-0283,Constructora W282,Centro,En Riesgo,184462.97
+CLT-0284,Constructora X283,Norte,En Riesgo,97808.59
+CLT-0285,Constructora Y284,Sur,Campeones,481877.95
+CLT-0286,Constructora Z285,Norte,Durmientes,33204.95
+CLT-0287,Constructora A286,Sur,En Riesgo,111159.56
+CLT-0288,Constructora B287,Sur,En Riesgo,184824.8
+CLT-0289,Constructora C288,Centro,En Riesgo,135968.96
+CLT-0290,Constructora D289,Sur,Durmientes,55197.56
+CLT-0291,Constructora E290,Norte,Campeones,497653.97
+CLT-0292,Constructora F291,Norte,En Riesgo,164311.22
+CLT-0293,Constructora G292,Metropolitana,En Riesgo,152304.66
+CLT-0294,Constructora H293,Centro,En Riesgo,111510.23
+CLT-0295,Constructora I294,Norte,Campeones,549813.34
+CLT-0296,Constructora J295,Sur,Durmientes,42593.65
+CLT-0297,Constructora K296,Metropolitana,Durmientes,26651.27
+CLT-0298,Constructora L297,Centro,En Riesgo,137156.55
+CLT-0299,Constructora M298,Metropolitana,En Riesgo,195022.79
+CLT-0300,Constructora N299,Norte,Durmientes,62753.33
+CLT-0301,Constructora O300,Norte,Durmientes,44770.22
+CLT-0302,Constructora P301,Sur,Campeones,482537.11
+CLT-0303,Constructora Q302,Sur,En Riesgo,140350.95
+CLT-0304,Constructora R303,Metropolitana,En Riesgo,212302.44
+CLT-0305,Constructora S304,Metropolitana,En Riesgo,161458.06
+CLT-0306,Constructora T305,Metropolitana,Durmientes,56450.62
+CLT-0307,Constructora U306,Sur,Durmientes,65454.25
+CLT-0308,Constructora V307,Centro,Durmientes,53581.84
+CLT-0309,Constructora W308,Metropolitana,En Riesgo,142228.74
+CLT-0310,Constructora X309,Centro,Campeones,490182.51
+CLT-0311,Constructora Y310,Sur,Durmientes,48925.98
+CLT-0312,Constructora Z311,Norte,Durmientes,49441.67
+CLT-0313,Constructora A312,Norte,Campeones,536381.48
+CLT-0314,Constructora B313,Metropolitana,Durmientes,50779.19
+CLT-0315,Constructora C314,Metropolitana,Durmientes,60989.6
+CLT-0316,Constructora D315,Metropolitana,En Riesgo,147578.5
+CLT-0317,Constructora E316,Sur,En Riesgo,152359.06
+CLT-0318,Constructora F317,Norte,En Riesgo,90053.98
+CLT-0319,Constructora G318,Norte,Campeones,545816.38
+CLT-0320,Constructora H319,Centro,En Riesgo,160394.65
+CLT-0321,Constructora I320,Sur,Durmientes,64970.15
+CLT-0322,Constructora J321,Metropolitana,Campeones,355187.23
+CLT-0323,Constructora K322,Metropolitana,En Riesgo,212651.24
+CLT-0324,Constructora L323,Centro,En Riesgo,145812.31
+CLT-0325,Constructora M324,Metropolitana,En Riesgo,183245.48
+CLT-0326,Constructora N325,Metropolitana,Durmientes,34401.41
+CLT-0327,Constructora O326,Sur,En Riesgo,168383.22
+CLT-0328,Constructora P327,Metropolitana,En Riesgo,118397.53
+CLT-0329,Constructora Q328,Sur,Durmientes,40643.47
+CLT-0330,Constructora R329,Centro,En Riesgo,207420.94
+CLT-0331,Constructora S330,Centro,En Riesgo,144279.53
+CLT-0332,Constructora T331,Metropolitana,En Riesgo,156522.99
+CLT-0333,Constructora U332,Norte,Campeones,543503.39
+CLT-0334,Constructora V333,Norte,Campeones,524784.09
+CLT-0335,Constructora W334,Norte,En Riesgo,154512.57
+CLT-0336,Constructora X335,Norte,En Riesgo,160948.83
+CLT-0337,Constructora Y336,Metropolitana,Durmientes,86051.23
+CLT-0338,Constructora Z337,Metropolitana,En Riesgo,148271.44
+CLT-0339,Constructora A338,Sur,En Riesgo,156032.97
+CLT-0340,Constructora B339,Norte,En Riesgo,181519.63
+CLT-0341,Constructora C340,Sur,Campeones,555276.3
+CLT-0342,Constructora D341,Sur,En Riesgo,185610.91
+CLT-0343,Constructora E342,Norte,Campeones,531936.51
+CLT-0344,Constructora F343,Sur,Durmientes,32854.93
+CLT-0345,Constructora G344,Centro,Campeones,581671.58
+CLT-0346,Constructora H345,Metropolitana,En Riesgo,115609.64
+CLT-0347,Constructora I346,Metropolitana,Campeones,515131.77
+CLT-0348,Constructora J347,Norte,Durmientes,38685.86
+CLT-0349,Constructora K348,Centro,En Riesgo,148075.85
+CLT-0350,Constructora L349,Metropolitana,En Riesgo,159862.87
+CLT-0351,Constructora M350,Sur,Campeones,516067.86
+CLT-0352,Constructora N351,Metropolitana,Durmientes,56328.81
+CLT-0353,Constructora O352,Metropolitana,En Riesgo,198411.34
+CLT-0354,Constructora P353,Norte,Durmientes,56803.01
+CLT-0355,Constructora Q354,Norte,En Riesgo,142675.3
+CLT-0356,Constructora R355,Metropolitana,Campeones,548204.36
+CLT-0357,Constructora S356,Norte,Campeones,559473.52
+CLT-0358,Constructora T357,Sur,En Riesgo,113171.77
+CLT-0359,Constructora U358,Metropolitana,En Riesgo,167922.0
+CLT-0360,Constructora V359,Sur,Campeones,535058.64
+CLT-0361,Constructora W360,Centro,Durmientes,45536.55
+CLT-0362,Constructora X361,Metropolitana,En Riesgo,191271.2
+CLT-0363,Constructora Y362,Sur,En Riesgo,145498.33
+CLT-0364,Constructora Z363,Sur,En Riesgo,153767.29
+CLT-0365,Constructora A364,Metropolitana,En Riesgo,144807.85
+CLT-0366,Constructora B365,Centro,En Riesgo,150467.37
+CLT-0367,Constructora C366,Metropolitana,Campeones,445186.25
+CLT-0368,Constructora D367,Metropolitana,Campeones,427997.46
+CLT-0369,Constructora E368,Norte,Durmientes,73917.58
+CLT-0370,Constructora F369,Norte,Durmientes,37295.58
+CLT-0371,Constructora G370,Norte,En Riesgo,120258.23
+CLT-0372,Constructora H371,Norte,En Riesgo,85398.3
+CLT-0373,Constructora I372,Norte,En Riesgo,130831.15
+CLT-0374,Constructora J373,Metropolitana,En Riesgo,110307.31
+CLT-0375,Constructora K374,Norte,Campeones,582100.76
+CLT-0376,Constructora L375,Centro,Campeones,550490.85
+CLT-0377,Constructora M376,Metropolitana,Durmientes,39677.74
+CLT-0378,Constructora N377,Norte,En Riesgo,217573.07
+CLT-0379,Constructora O378,Metropolitana,Campeones,549088.27
+CLT-0380,Constructora P379,Centro,En Riesgo,140255.06
+CLT-0381,Constructora Q380,Norte,En Riesgo,75017.83
+CLT-0382,Constructora R381,Metropolitana,En Riesgo,218728.28
+CLT-0383,Constructora S382,Metropolitana,Campeones,430521.38
+CLT-0384,Constructora T383,Metropolitana,Campeones,417730.06
+CLT-0385,Constructora U384,Metropolitana,Durmientes,65338.56
+CLT-0386,Constructora V385,Metropolitana,Campeones,621987.62
+CLT-0387,Constructora W386,Centro,En Riesgo,191528.18
+CLT-0388,Constructora X387,Norte,En Riesgo,166917.27
+CLT-0389,Constructora Y388,Metropolitana,Campeones,529737.72
+CLT-0390,Constructora Z389,Metropolitana,En Riesgo,175602.47
+CLT-0391,Constructora A390,Metropolitana,Durmientes,61383.93
+CLT-0392,Constructora B391,Sur,Durmientes,54217.87
+CLT-0393,Constructora C392,Centro,Durmientes,51563.02
+CLT-0394,Constructora D393,Metropolitana,En Riesgo,148122.21
+CLT-0395,Constructora E394,Centro,En Riesgo,127381.06
+CLT-0396,Constructora F395,Metropolitana,En Riesgo,141579.75
+CLT-0397,Constructora G396,Metropolitana,En Riesgo,99211.3
+CLT-0398,Constructora H397,Sur,Durmientes,48524.91
+CLT-0399,Constructora I398,Metropolitana,Campeones,450570.44
+CLT-0400,Constructora J399,Metropolitana,Campeones,444820.53
+CLT-0401,Constructora K400,Norte,En Riesgo,155396.82
+CLT-0402,Constructora L401,Metropolitana,Campeones,569600.11
+CLT-0403,Constructora M402,Sur,Campeones,545915.83
+CLT-0404,Constructora N403,Metropolitana,En Riesgo,102884.98
+CLT-0405,Constructora O404,Centro,En Riesgo,120311.16
+CLT-0406,Constructora P405,Metropolitana,Durmientes,64111.57
+CLT-0407,Constructora Q406,Centro,Durmientes,35262.69
+CLT-0408,Constructora R407,Norte,En Riesgo,143261.01
+CLT-0409,Constructora S408,Metropolitana,En Riesgo,166501.56
+CLT-0410,Constructora T409,Norte,En Riesgo,120949.67
+CLT-0411,Constructora U410,Centro,En Riesgo,153161.27
+CLT-0412,Constructora V411,Metropolitana,En Riesgo,109979.24
+CLT-0413,Constructora W412,Metropolitana,En Riesgo,131958.97
+CLT-0414,Constructora X413,Sur,En Riesgo,159593.46
+CLT-0415,Constructora Y414,Metropolitana,En Riesgo,102210.19
+CLT-0416,Constructora Z415,Sur,En Riesgo,163214.24
+CLT-0417,Constructora A416,Centro,En Riesgo,149410.87
+CLT-0418,Constructora B417,Centro,Durmientes,58287.35
+CLT-0419,Constructora C418,Metropolitana,Durmientes,53358.71
+CLT-0420,Constructora D419,Metropolitana,Campeones,568207.02
+CLT-0421,Constructora E420,Metropolitana,Durmientes,51878.37
+CLT-0422,Constructora F421,Metropolitana,En Riesgo,137117.83
+CLT-0423,Constructora G422,Norte,Durmientes,51834.46
+CLT-0424,Constructora H423,Sur,Durmientes,58149.47
+CLT-0425,Constructora I424,Norte,En Riesgo,151465.8
+CLT-0426,Constructora J425,Sur,Campeones,502029.58
+CLT-0427,Constructora K426,Sur,En Riesgo,128940.25
+CLT-0428,Constructora L427,Metropolitana,En Riesgo,130112.97
+CLT-0429,Constructora M428,Centro,En Riesgo,107921.84
+CLT-0430,Constructora N429,Norte,En Riesgo,202487.3
+CLT-0431,Constructora O430,Norte,Campeones,437806.84
+CLT-0432,Constructora P431,Metropolitana,Durmientes,39606.42
+CLT-0433,Constructora Q432,Metropolitana,Durmientes,39223.89
+CLT-0434,Constructora R433,Norte,En Riesgo,176847.73
+CLT-0435,Constructora S434,Norte,Campeones,485252.52
+CLT-0436,Constructora T435,Metropolitana,En Riesgo,187432.26
+CLT-0437,Constructora U436,Norte,Campeones,466325.47
+CLT-0438,Constructora V437,Metropolitana,Durmientes,54184.91
+CLT-0439,Constructora W438,Metropolitana,Campeones,458232.65
+CLT-0440,Constructora X439,Norte,En Riesgo,214354.47
+CLT-0441,Constructora Y440,Norte,En Riesgo,114372.05
+CLT-0442,Constructora Z441,Metropolitana,En Riesgo,159294.62
+CLT-0443,Constructora A442,Centro,En Riesgo,169013.31
+CLT-0444,Constructora B443,Centro,Durmientes,56206.99
+CLT-0445,Constructora C444,Metropolitana,En Riesgo,144441.37
+CLT-0446,Constructora D445,Metropolitana,Campeones,493508.97
+CLT-0447,Constructora E446,Metropolitana,Campeones,502190.57
+CLT-0448,Constructora F447,Metropolitana,Durmientes,47794.97
+CLT-0449,Constructora G448,Centro,Durmientes,64458.19
+CLT-0450,Constructora H449,Norte,En Riesgo,216315.69
+CLT-0451,Constructora I450,Metropolitana,En Riesgo,133275.25
+CLT-0452,Constructora J451,Sur,En Riesgo,108905.91
+CLT-0453,Constructora K452,Sur,Campeones,495585.9
+CLT-0454,Constructora L453,Metropolitana,Durmientes,88695.64
+CLT-0455,Constructora M454,Norte,En Riesgo,125889.76
+CLT-0456,Constructora N455,Sur,En Riesgo,199173.5
+CLT-0457,Constructora O456,Norte,En Riesgo,200331.02
+CLT-0458,Constructora P457,Sur,Campeones,472320.59
+CLT-0459,Constructora Q458,Norte,Campeones,528449.15
+CLT-0460,Constructora R459,Norte,Durmientes,74425.95
+CLT-0461,Constructora S460,Norte,Campeones,481043.61
+CLT-0462,Constructora T461,Metropolitana,En Riesgo,143892.59
+CLT-0463,Constructora U462,Metropolitana,En Riesgo,132549.57
+CLT-0464,Constructora V463,Sur,En Riesgo,119557.3
+CLT-0465,Constructora W464,Metropolitana,En Riesgo,130521.67
+CLT-0466,Constructora X465,Centro,En Riesgo,113281.79
+CLT-0467,Constructora Y466,Centro,Durmientes,50511.25
+CLT-0468,Constructora Z467,Metropolitana,En Riesgo,126900.8
+CLT-0469,Constructora A468,Centro,En Riesgo,157013.58
+CLT-0470,Constructora B469,Metropolitana,En Riesgo,103323.13
+CLT-0471,Constructora C470,Norte,En Riesgo,159926.41
+CLT-0472,Constructora D471,Metropolitana,Durmientes,62502.93
+CLT-0473,Constructora E472,Norte,Durmientes,20093.97
+CLT-0474,Constructora F473,Metropolitana,En Riesgo,161221.7
+CLT-0475,Constructora G474,Sur,Campeones,561383.45
+CLT-0476,Constructora H475,Metropolitana,En Riesgo,113710.77
+CLT-0477,Constructora I476,Norte,En Riesgo,200177.17
+CLT-0478,Constructora J477,Sur,Campeones,520950.95
+CLT-0479,Constructora K478,Metropolitana,En Riesgo,128849.64
+CLT-0480,Constructora L479,Sur,En Riesgo,148326.93
+CLT-0481,Constructora M480,Metropolitana,En Riesgo,166749.81
+CLT-0482,Constructora N481,Metropolitana,Durmientes,51140.08
+CLT-0483,Constructora O482,Sur,Campeones,526937.8
+CLT-0484,Constructora P483,Metropolitana,Campeones,453966.32
+CLT-0485,Constructora Q484,Sur,Durmientes,52540.41
+CLT-0486,Constructora R485,Metropolitana,En Riesgo,107588.57
+CLT-0487,Constructora S486,Norte,En Riesgo,146663.22
+CLT-0488,Constructora T487,Centro,En Riesgo,122882.77
+CLT-0489,Constructora U488,Metropolitana,En Riesgo,127934.1
+CLT-0490,Constructora V489,Metropolitana,Durmientes,68541.4
+CLT-0491,Constructora W490,Sur,Durmientes,66369.65
+CLT-0492,Constructora X491,Metropolitana,En Riesgo,168274.14
+CLT-0493,Constructora Y492,Centro,En Riesgo,117230.62
+CLT-0494,Constructora Z493,Norte,En Riesgo,140507.75
+CLT-0495,Constructora A494,Sur,En Riesgo,186392.93
+CLT-0496,Constructora B495,Centro,Campeones,507085.85
+CLT-0497,Constructora C496,Sur,Durmientes,84789.94
+CLT-0498,Constructora D497,Norte,Campeones,519665.89
+CLT-0499,Constructora E498,Metropolitana,Durmientes,52880.74
+CLT-0500,Constructora F499,Metropolitana,En Riesgo,140726.51
